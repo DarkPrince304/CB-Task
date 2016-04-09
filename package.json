@@ -1,0 +1,25 @@
+{
+  "name": "cb-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darkprince304/CB-Task.git"
+  },
+  "author": "Sanchit Kapoor <sanchitlucknow@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darkprince304/CB-Task/issues"
+  },
+  "homepage": "https://github.com/darkprince304/CB-Task#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "elasticsearch": "^11.0.0",
+    "express": "^4.13.4",
+    "redis": "^2.6.0-1"
+  }
+}
