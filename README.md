@@ -25,7 +25,7 @@ To search data from ES one can send a GET request to "/search" specifying the st
 
 Example:
 ```
-curl -XGET "http://localhost:3000/index?query=Sanchit
+curl -XGET "http://localhost:3000/search?query=Sanchit
 ```
 
 This will return a JSON Object containing the hit information if found.
