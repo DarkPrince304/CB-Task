@@ -25,32 +25,45 @@ app.get('/', function(req, res) {
 });
 
 app.post('/index', function(req, res) {
-	console.log(req.body);
 	for ( var i in req.body ) {
 		client.set(i, req.body[i], function(err, reply) {
 		  console.log(reply);
 		});
 	}
 	clientES.index({
-	  index: 'sample',
-	  type: 'document',
-	  id: '1',
-	  body: {
-	          name: 'Reliability', 
-	          text: 'Reliability is improved if multiple redundant sites are used, which makes well-designed cloud computing suitable for business continuity.'
-	  }
+	  index: 'cloud',
+	  type: 'boost',
+	  body: req.body
 	}, function (error, response) {
 	  console.log(response);
 	});
 })
 
 app.get('/index', function(req, res) {
-	var param = Object.keys(req.query)[0];
+	var param = req.query["query"];
 
 	client.get(param, function(err, reply) {
 	  console.log(reply);
 	});
 });
 
+app.get('/search', function(req, res) {
+	var param = req.query["query"];
+	clientES.search({
+	    index: 'cloud',
+        type: 'boost',
+        body: {
+            query: {
+                query_string:{
+                	query: param
+                }
+            }
+        }
+    }).then(function (resp) {
+        console.log(JSON.stringify(resp["hits"]["hits"]));
+    }, function (err) {
+        console.log(err.message);
+    });
+})
 
 app.listen(3000);
