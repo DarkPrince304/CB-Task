@@ -9,7 +9,7 @@ To index data into Redis and Elasticsearch one can send a POST request to the "/
 
 For example, using curl
 ```
-curl --data "name=Sanchit&age=22" http://localhost:3000/index"
+curl --data "name=Sanchit&age=22" http://localhost:3000/index
 ```
 This will index the data as key-value pairs in Redis and ElasticSearch respectively.
 
@@ -17,7 +17,7 @@ To get data from Redis one can send a GET request to "/index" specifying the str
 
 Example:
 ```
-curl -XGET "http://localhost:3000/index?query=age
+curl -XGET "http://localhost:3000/index?query=age"
 ```
 The above will return 22
 
@@ -25,7 +25,7 @@ To search data from ES one can send a GET request to "/search" specifying the st
 
 Example:
 ```
-curl -XGET "http://localhost:3000/search?query=Sanchit
+curl -XGET "http://localhost:3000/search?query=Sanchit"
 ```
 
 This will return a JSON Object containing the hit information if found.
